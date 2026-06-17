@@ -103,12 +103,14 @@
   border-radius: 8px;
   background: var(--bg-section-alt);
   margin-bottom: 4px;
+  padding: 6px 8px;
 }
 
 .cab-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
   object-position: center;
   display: block;
   transition: transform 0.3s;
@@ -120,6 +122,11 @@
 }
 
 .cab-img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   font-size: 28px;
   line-height: 1;
 }

@@ -149,7 +149,7 @@ export default function Hero() {
             <Link to="/booking" className="btn-primary hero-btn">
               <MdMyLocation style={{ fontSize: 18 }} /> Book a Ride
             </Link>
-            <a href="tel:+918460811110" className="btn-outline">
+            <a href="tel:+918460811110" className="btn-outline hero-call-btn">
               <MdPhone style={{ fontSize: 18 }} /> Call Now
             </a>
           </div>
@@ -157,12 +157,12 @@ export default function Hero() {
           {/* Stats */}
           <div className="hero-stats">
             <div className="stat">
-              <span className="stat-num">50K+</span>
+              <span className="stat-num">10K+</span>
               <span className="stat-label">Happy Riders</span>
             </div>
             <div className="stat-divider" />
             <div className="stat">
-              <span className="stat-num">200+</span>
+              <span className="stat-num">50+</span>
               <span className="stat-label">Cities Covered</span>
             </div>
             <div className="stat-divider" />
@@ -175,16 +175,7 @@ export default function Hero() {
 
         {/* ── Right side taxi image ── */}
         <div className="hero-img-wrap hero-animate-card">
-          {/* Glow ring behind image */}
           <div className="hero-img-glow" aria-hidden="true" />
-          {/* Floating badge — top left */}
-          <div className="hero-img-badge hero-img-badge--tl">
-            <span>🛡️</span> Verified Driver
-          </div>
-          {/* Floating badge — bottom right */}
-          <div className="hero-img-badge hero-img-badge--br">
-            <span>⭐</span> 4.9 Rated
-          </div>
           <img
             src="/img/delivery_taxi_13-removebg-preview.png"
             alt="RK Taxi Service — Premium Cab"

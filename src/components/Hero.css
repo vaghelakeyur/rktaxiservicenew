@@ -1,7 +1,7 @@
 .hero {
   min-height: 100vh;
   background:
-    linear-gradient(135deg, rgba(7, 11, 16, 0.9), rgba(12, 18, 24, 0.78)),
+    linear-gradient(135deg, rgba(8, 23, 48, 0.9), rgba(17, 55, 92, 0.78)),
     url('/img/taxiBackgroundPic.jpg') center center / cover no-repeat;
   position: relative;
   display: flex;
@@ -15,27 +15,27 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(245, 197, 24, 0.12) 0%, transparent 30%),
-    radial-gradient(circle at 18% 24%, rgba(245, 197, 24, 0.2) 0%, transparent 34%),
-    radial-gradient(circle at 82% 18%, rgba(16, 185, 129, 0.16) 0%, transparent 28%),
-    radial-gradient(circle at 52% 84%, rgba(245, 158, 11, 0.12) 0%, transparent 32%),
-    linear-gradient(180deg, rgba(3, 6, 10, 0.08) 0%, rgba(3, 6, 10, 0.4) 100%);
+    linear-gradient(115deg, rgba(56, 189, 248, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 18% 24%, rgba(96, 165, 250, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 82% 18%, rgba(45, 212, 191, 0.16) 0%, transparent 28%),
+    radial-gradient(circle at 52% 84%, rgba(125, 211, 252, 0.14) 0%, transparent 32%),
+    linear-gradient(180deg, rgba(4, 12, 24, 0.08) 0%, rgba(4, 12, 24, 0.42) 100%);
   pointer-events: none;
 }
 
 [data-theme='light'] .hero {
   background:
-    linear-gradient(135deg, rgba(224, 242, 254, 0.94), rgba(240, 249, 255, 0.86)),
+    linear-gradient(135deg, rgba(219, 234, 254, 0.96), rgba(236, 254, 255, 0.9)),
     url('/img/taxiBackgroundPic.jpg') center center / cover no-repeat;
 }
 
 [data-theme='light'] .hero-overlay {
   background:
-    linear-gradient(120deg, rgba(59, 130, 246, 0.14) 0%, transparent 34%),
-    radial-gradient(circle at 16% 24%, rgba(96, 165, 250, 0.22) 0%, transparent 32%),
-    radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.16) 0%, transparent 28%),
-    radial-gradient(circle at 54% 82%, rgba(125, 211, 252, 0.14) 0%, transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(224, 242, 254, 0.26) 100%);
+    linear-gradient(120deg, rgba(37, 99, 235, 0.12) 0%, transparent 34%),
+    radial-gradient(circle at 16% 24%, rgba(96, 165, 250, 0.24) 0%, transparent 32%),
+    radial-gradient(circle at 82% 18%, rgba(34, 211, 238, 0.18) 0%, transparent 28%),
+    radial-gradient(circle at 54% 82%, rgba(103, 232, 249, 0.16) 0%, transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(219, 234, 254, 0.3) 100%);
 }
 
 /* ── Floating orbs ── */
@@ -285,7 +285,7 @@
 }
 
 .hero-text h1 {
-  font-size: clamp(36px, 5vw, 62px);
+  font-size: clamp(26px, 3.7vw, 44px);
   color: var(--white);
   line-height: 1.12;
   margin-bottom: 20px;
@@ -360,6 +360,19 @@
   padding: 15px 32px;
 }
 
+[data-theme='light'] .hero-call-btn {
+  background: rgba(255, 255, 255, 0.72);
+  color: #1d4ed8;
+  border-color: rgba(59, 130, 246, 0.38);
+  box-shadow: 0 10px 26px rgba(59, 130, 246, 0.12);
+}
+
+[data-theme='light'] .hero-call-btn:hover {
+  background: rgba(239, 246, 255, 0.92);
+  color: #0f766e;
+  border-color: rgba(14, 165, 233, 0.55);
+}
+
 /* Stats bar */
 .hero-stats {
   display: flex;
@@ -430,12 +443,23 @@
   z-index: 1;
   mix-blend-mode: lighten;
   filter: drop-shadow(0 32px 48px rgba(0,0,0,0.6));
-  animation: taxiFloat 4s ease-in-out infinite;
+  transform-origin: 50% 75%;
+  animation: taxiCruise 6.8s cubic-bezier(0.42, 0, 0.2, 1) infinite;
 }
 
-@keyframes taxiFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-16px); }
+@keyframes taxiCruise {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  22% {
+    transform: translate3d(10px, -8px, 0) rotate(-1deg) scale(1.01);
+  }
+  50% {
+    transform: translate3d(18px, -14px, 0) rotate(0.6deg) scale(1.018);
+  }
+  76% {
+    transform: translate3d(8px, -6px, 0) rotate(-0.5deg) scale(1.008);
+  }
 }
 
 /* Glow blob behind the image */
@@ -592,7 +616,7 @@
 
 @media (max-width: 600px) {
   .hero-content { padding: 32px 16px 48px; gap: 20px; }
-  .hero-text h1 { font-size: clamp(24px, 7vw, 34px); }
+  .hero-text h1 { font-size: clamp(20px, 5.8vw, 27px); }
   .hero-text p { font-size: 15px; }
   .hero-btn { font-size: 14px; padding: 13px 24px; }
   .hero-stats { gap: 16px; padding: 16px 20px; width: 100%; justify-content: center; }

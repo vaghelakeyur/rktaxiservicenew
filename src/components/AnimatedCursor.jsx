@@ -90,7 +90,9 @@ export default function AnimatedCursor() {
 
   return (
     <>
-      <div ref={dotRef}  className="cursor-dot"  aria-hidden="true" />
+      <div ref={dotRef}  className="cursor-dot"  aria-hidden="true">
+        <span className="cursor-car-icon">TAXI</span>
+      </div>
       <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
     </>
   )
