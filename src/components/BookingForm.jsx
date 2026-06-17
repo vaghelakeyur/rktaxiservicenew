@@ -9,7 +9,7 @@ const CAB_TYPES = [
     id: 'sedan',
     label: 'Sedan',
     desc: 'Up to 4 passengers',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/2020_Maruti_Suzuki_Swift_Dzire_ZXi_Plus_%28white%29%2C_front_8.16.19.jpg/320px-2020_Maruti_Suzuki_Swift_Dzire_ZXi_Plus_%28white%29%2C_front_8.16.19.jpg',
+    image: 'https://img.icons8.com/comic/100/sedan.png',
     fallback: '🚗',
   },
   {
@@ -100,18 +100,18 @@ export default function BookingForm() {
 
     // Build WhatsApp message with booking details
     const message = [
-      `🚕 *New Cab Booking Request*`,
+      `*New Cab Booking Request*`,
       ``,
-      `👤 *Name:* ${form.name}`,
-      `📞 *Phone:* ${form.phone}`,
-      `🚘 *Trip Type:* ${tripType}`,
-      `🚗 *Cab Type:* ${selectedCab?.label} (${selectedCab?.desc})`,
-      `📍 *Pickup:* ${form.pickup}`,
-      `🏁 *Drop:* ${form.drop}`,
-      `📅 *Date:* ${form.date}`,
-      `⏰ *Time:* ${form.time}`,
-      `👥 *Passengers:* ${form.passengers}`,
-      form.notes ? `📝 *Notes:* ${form.notes}` : null,
+      `• *Name:* ${form.name}`,
+      `• *Phone:* ${form.phone}`,
+      `• *Trip Type:* ${tripType}`,
+      `• *Cab Type:* ${selectedCab?.label} (${selectedCab?.desc})`,
+      `• *Pickup:* ${form.pickup}`,
+      `• *Drop:* ${form.drop}`,
+      `• *Date:* ${form.date}`,
+      `• *Time:* ${form.time}`,
+      `• *Passengers:* ${form.passengers}`,
+      form.notes ? `• *Notes:* ${form.notes}` : null,
     ]
       .filter(Boolean)
       .join('\n')

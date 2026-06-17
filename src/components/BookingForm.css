@@ -124,6 +124,10 @@
   line-height: 1;
 }
 
+[data-theme='dark'] .cab-img-fallback img {
+  filter: brightness(0) invert(1);
+}
+
 .cab-label {
   font-size: 13px;
   font-weight: 600;

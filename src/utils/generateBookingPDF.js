@@ -3,7 +3,7 @@
  * Uses the browser's built-in print dialog (Save as PDF) to produce a
  * well-formatted booking confirmation — zero external dependencies.
  */
-export function generateBookingPDF({ form, tripType, cabType, cabLabel, bookingId }) {
+export function generateBookingPDF({ form, tripType, cabLabel, bookingId }) {
   const printWindow = window.open('', '_blank', 'width=800,height=700')
   if (!printWindow) return
 

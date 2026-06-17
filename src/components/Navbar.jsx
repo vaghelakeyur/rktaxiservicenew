@@ -1,4 +1,5 @@
-﻿import { useState, useEffect, memo } from 'react'
+import { useState, useEffect, memo } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { MdPhone } from 'react-icons/md'
 import './Navbar.css'
 
@@ -62,15 +63,11 @@ const RKLogo = memo(function RKLogo() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme')
-    return saved === 'dark'
-  })
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light')
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light')
-  }, [darkMode])
+    document.documentElement.setAttribute('data-theme', 'light')
+    localStorage.setItem('theme', 'light')
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -79,13 +76,12 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { label: 'Home',     href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'Fleet',    href: '#fleet' },
-    { label: 'Fare',     href: '#fare' },
-    { label: 'Packages', href: '#packages' },
-    { label: 'Destination',   href: '#destinations' },
-    { label: 'About',    href: '#about' },
+    { label: 'Home',     path: '/' },
+    { label: 'About',    path: '/about' },
+    { label: 'Fleet',    path: '/fleet' },
+    { label: 'Popular', path: '/#destinations' },
+    { label: 'Service', path: '/services' },
+    { label: 'Contact',  path: '/contact' },
   ]
 
   return (
@@ -93,36 +89,37 @@ export default function Navbar() {
       <TickerBar />
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container navbar-inner">
-          <a href="#home" className="navbar-logo">
+          <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
             <RKLogo />
-          </a>
+          </Link>
 
           <ul className="navbar-links">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              if (link.label === 'Popular') {
+                return (
+                  <li key={link.label}>
+                    <Link to={link.path} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              }
+              return (
+                <li key={link.label}>
+                  <NavLink to={link.path} onClick={() => setMenuOpen(false)} end={link.path === '/'}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              )
+            })}
           </ul>
 
           <div className="navbar-right">
             <a href="tel:+918460811110" className="navbar-phone">
-              <MdPhone style={{ fontSize: 16, verticalAlign: 'middle', marginRight: 4 }} /> +91 84608 11110
+              <MdPhone size={18} /> +91 84608 11110
             </a>
 
-            <button
-              className="theme-toggle"
-              onClick={() => setDarkMode(d => !d)}
-              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <span className="theme-toggle-track">
-                <span className="theme-toggle-thumb" />
-                <span className="theme-icon theme-icon-sun">☀️</span>
-                <span className="theme-icon theme-icon-moon">🌙</span>
-              </span>
-            </button>
-
-            <a href="#booking" className="btn-primary navbar-cta">Book Now</a>
+            <Link to="/booking" className="btn-primary navbar-cta">Book Now</Link>
             <button
               className={`hamburger ${menuOpen ? 'open' : ''}`}
               onClick={() => setMenuOpen(!menuOpen)}
@@ -135,13 +132,26 @@ export default function Navbar() {
 
         <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
           <ul>
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              if (link.label === 'Popular') {
+                return (
+                  <li key={link.label}>
+                    <Link to={link.path} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              }
+              return (
+                <li key={link.label}>
+                  <NavLink to={link.path} onClick={() => setMenuOpen(false)} end={link.path === '/'}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              )
+            })}
             <li>
-              <a href="#booking" className="btn-primary" onClick={() => setMenuOpen(false)}>Book Now</a>
+              <Link to="/booking" className="btn-primary" onClick={() => setMenuOpen(false)}>Book Now</Link>
             </li>
           </ul>
         </div>

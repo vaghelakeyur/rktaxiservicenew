@@ -26,10 +26,14 @@
 }
 
 .features-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 15px;
   font-weight: 600;
   color: var(--primary);
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .features-phone:hover {

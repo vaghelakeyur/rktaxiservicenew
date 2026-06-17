@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import { MdVerifiedUser, MdMoneyOff, MdSupportAgent, MdEventAvailable, MdCleaningServices, MdPhone } from 'react-icons/md'
 import './Features.css'
@@ -26,9 +27,9 @@ export default function Features() {
               <p>Whether you need a quick ride across town or a week-long getaway to the mountains, we have the perfect solution.</p>
             </div>
             <div className="features-cta">
-              <a href="#booking" className="btn-primary">Book a Ride Now</a>
+              <Link to="/booking" className="btn-primary">Book a Ride Now</Link>
               <a href="tel:+918460811110" className="features-phone">
-                <MdPhone style={{ verticalAlign: 'middle', marginRight: 4 }} /> +91 84608 11110
+                <MdPhone size={18} /> +91 84608 11110
               </a>
             </div>
             {/* Trust badges */}

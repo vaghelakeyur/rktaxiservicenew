@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 import './AnimatedCursor.css'
 
 export default function AnimatedCursor() {
@@ -10,26 +10,26 @@ export default function AnimatedCursor() {
   const hovering = useRef(false)
   const clicking = useRef(false)
 
-  const animate = useCallback(() => {
-    const ease = 0.13
-    ringPos.current.x += (posRef.current.x - ringPos.current.x) * ease
-    ringPos.current.y += (posRef.current.y - ringPos.current.y) * ease
-
-    if (dotRef.current) {
-      dotRef.current.style.transform =
-        `translate(${posRef.current.x}px, ${posRef.current.y}px) translate(-50%, -50%)`
-    }
-    if (ringRef.current) {
-      ringRef.current.style.transform =
-        `translate(${ringPos.current.x}px, ${ringPos.current.y}px) translate(-50%, -50%)`
-    }
-
-    rafRef.current = requestAnimationFrame(animate)
-  }, [])
-
   useEffect(() => {
     // Hide default cursor
     document.documentElement.classList.add('custom-cursor-active')
+
+    const animate = () => {
+      const ease = 0.13
+      ringPos.current.x += (posRef.current.x - ringPos.current.x) * ease
+      ringPos.current.y += (posRef.current.y - ringPos.current.y) * ease
+
+      if (dotRef.current) {
+        dotRef.current.style.transform =
+          `translate(${posRef.current.x}px, ${posRef.current.y}px) translate(-50%, -50%)`
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform =
+          `translate(${ringPos.current.x}px, ${ringPos.current.y}px) translate(-50%, -50%)`
+      }
+
+      rafRef.current = requestAnimationFrame(animate)
+    }
 
     const onMove = (e) => {
       posRef.current = { x: e.clientX, y: e.clientY }
@@ -86,13 +86,12 @@ export default function AnimatedCursor() {
       document.removeEventListener('mouseup',    onUp)
       cancelAnimationFrame(rafRef.current)
     }
-  }, [animate])
+  }, [])
 
   return (
     <>
       <div ref={dotRef}  className="cursor-dot"  aria-hidden="true" />
       <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
     </>
-    
   )
 }

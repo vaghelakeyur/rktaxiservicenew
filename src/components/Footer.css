@@ -4,7 +4,7 @@
 }
 
 [data-theme='light'] .footer {
-  background: #f8f7ff;
+  background: #f1f3f6;
   color: var(--text-secondary);
   border-top: 1px solid var(--border-color);
 }
@@ -109,6 +109,14 @@
   background: var(--bg-section-alt);
   border-color: var(--border-color);
   color: var(--text-secondary);
+}
+
+.footer-social img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme='light'] .footer-social img {
+  filter: none;
 }
 
 .footer-social a:hover {

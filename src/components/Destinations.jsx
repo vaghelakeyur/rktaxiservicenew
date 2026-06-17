@@ -369,6 +369,7 @@ export default function Destinations() {
 
         {/* Tab Switcher */}
         <div className="dest-tabs" role="tablist" aria-label="Route source city">
+          <div className={`dest-tab-indicator active-${activeTab}`} />
           <button
             role="tab"
             aria-selected={activeTab === 'rajkot'}

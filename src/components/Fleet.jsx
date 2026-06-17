@@ -1,4 +1,5 @@
-﻿import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useRef, useState, useEffect } from 'react'
 import useInView from '../hooks/useInView'
 import './Fleet.css'
 
@@ -371,6 +372,15 @@ function FareList() {
   const [active, setActive] = useState('sedan')
   const [titleRef, titleVisible] = useInView()
   const [bodyRef, bodyVisible] = useInView()
+
+  useEffect(() => {
+    const handleCategory = (e) => {
+      setActive(e.detail)
+    }
+    window.addEventListener('set-fare-category', handleCategory)
+    return () => window.removeEventListener('set-fare-category', handleCategory)
+  }, [])
+
   const current = fareData[active]
 
   return (
@@ -492,9 +502,9 @@ function CarCard({ car }) {
           <span className="price-value">{car.price}</span>
           <span className="price-note">onwards</span>
         </div>
-        <a href="#booking" className="btn-primary fleet-btn">
+        <Link to="/booking" className="btn-primary fleet-btn">
           Book
-        </a>
+        </Link>
       </div>
     </div>
   )

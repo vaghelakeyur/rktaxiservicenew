@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { MdMyLocation, MdPhone } from 'react-icons/md'
 import './Hero.css'
 
@@ -61,19 +62,19 @@ export default function Hero() {
       <svg className="hero-routes" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <linearGradient id="routeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#7c3aed" stopOpacity="0.6"/>
-            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#f5c518" stopOpacity="0"/>
+            <stop offset="50%" stopColor="#f5c518" stopOpacity="0.72"/>
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0"/>
           </linearGradient>
           <linearGradient id="routeGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#06b6d4" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.5"/>
-            <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0"/>
+            <stop offset="50%" stopColor="#10b981" stopOpacity="0.55"/>
+            <stop offset="100%" stopColor="#f5c518" stopOpacity="0"/>
           </linearGradient>
           <linearGradient id="routeGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#f97316" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#f97316" stopOpacity="0.35"/>
-            <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0"/>
+            <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.42"/>
+            <stop offset="100%" stopColor="#f5c518" stopOpacity="0"/>
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -85,15 +86,15 @@ export default function Hero() {
         <path d="M-50,500 Q300,350 700,250 T1300,100 T1500,80" stroke="url(#routeGrad2)" strokeWidth="1" fill="none" filter="url(#glow)" className="route-path route-path-2"/>
         <path d="M0,700 Q400,500 800,400 T1440,200"            stroke="url(#routeGrad3)" strokeWidth="1.2" fill="none" filter="url(#glow)" className="route-path route-path-3"/>
         {/* Moving dot on route 1 */}
-        <circle r="4" fill="#7c3aed" filter="url(#glow)" opacity="0.9">
+        <circle r="4" fill="#f5c518" filter="url(#glow)" opacity="0.9">
           <animateMotion dur="8s" repeatCount="indefinite" path="M-50,600 Q200,400 500,300 T1100,150 T1500,50"/>
         </circle>
         {/* Moving dot on route 2 */}
-        <circle r="3" fill="#06b6d4" filter="url(#glow)" opacity="0.8">
+        <circle r="3" fill="#10b981" filter="url(#glow)" opacity="0.8">
           <animateMotion dur="11s" repeatCount="indefinite" begin="-3s" path="M-50,500 Q300,350 700,250 T1300,100 T1500,80"/>
         </circle>
         {/* Moving dot on route 3 */}
-        <circle r="3.5" fill="#f97316" filter="url(#glow)" opacity="0.7">
+        <circle r="3.5" fill="#f59e0b" filter="url(#glow)" opacity="0.75">
           <animateMotion dur="14s" repeatCount="indefinite" begin="-6s" path="M0,700 Q400,500 800,400 T1440,200"/>
         </circle>
       </svg>
@@ -145,9 +146,9 @@ export default function Hero() {
             and airport transfers at unbeatable rates. Available 24/7.
           </p>
           <div className="hero-actions">
-            <a href="#booking" className="btn-primary hero-btn">
+            <Link to="/booking" className="btn-primary hero-btn">
               <MdMyLocation style={{ fontSize: 18 }} /> Book a Ride
-            </a>
+            </Link>
             <a href="tel:+918460811110" className="btn-outline">
               <MdPhone style={{ fontSize: 18 }} /> Call Now
             </a>
@@ -194,7 +195,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <a href="#booking" className="scroll-down" aria-label="Scroll down">
+      <a href="#how-it-works" className="scroll-down" aria-label="Scroll down">
         <div className="scroll-dot" />
       </a>
     </section>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import {
   MdLocationCity, MdRoute, MdFlight, MdBeachAccess,
@@ -69,9 +70,9 @@ export default function Services() {
                 ))}
               </ul>
 
-              <a href="#booking" className="service-cta">
+              <Link to="/booking" className="service-cta">
                 Book Now <MdArrowForward style={{ fontSize: 16 }} />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

@@ -1,20 +1,20 @@
 import './Footer.css'
+import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaWhatsapp, FaPhone } from 'react-icons/fa'
 import { MdLocationOn, MdEmail, MdAccessTime, MdPhone } from 'react-icons/md'
 
 const quickLinks = [
-  { label: 'Home',             href: '#home' },
-  { label: 'Book a Taxi',      href: '#booking' },
-  { label: 'Our Services',     href: '#services' },
-  { label: 'Our Fleet',        href: '#fleet' },
-  { label: 'Holiday Packages', href: '#packages' },
-  { label: 'About Us',         href: '#about' },
-  { label: 'Contact Us',       href: '#contact' },
+  { label: 'Home',             path: '/' },
+  { label: 'Book a Taxi',      path: '/booking' },
+  { label: 'Our Services',     path: '/services' },
+  { label: 'Our Fleet',        path: '/fleet' },
+  { label: 'About Us',         path: '/about' },
+  { label: 'Contact Us',       path: '/contact' },
 ]
 
 const serviceLinks = [
   'Local City Rides', 'Outstation Trips', 'Airport Transfers',
-  'Holiday Packages', 'Corporate Cabs', 'Wedding Cars',
+  'Corporate Cabs', 'Wedding Cars',
 ]
 
 export default function Footer() {
@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="footer-brand">
-            <a href="#home" className="footer-logo">
+            <Link to="/" className="footer-logo">
               <svg className="footer-logo-svg" viewBox="0 0 80 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M8 30 Q12 18 22 16 L38 14 Q50 13 58 18 L70 24 Q74 26 74 30 L74 36 Q74 38 72 38 L10 38 Q8 38 8 36 Z" fill="#f5c518"/>
                 <path d="M24 16 L28 22 L52 22 L56 18 Q50 13 38 14 Z" fill="#0d0d1a" opacity="0.6"/>
@@ -39,7 +39,7 @@ export default function Footer() {
                 <line x1="2" y1="30" x2="10" y2="30" stroke="#f5c518" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
               <span className="footer-logo-text">RK <strong>Taxi</strong> Service<small>Book your ride</small></span>
-            </a>
+            </Link>
             <p className="text-sm leading-relaxed mt-3" style={{ color: 'rgba(255,255,255,0.65)' }}>
               Your trusted partner for reliable taxi services and unforgettable holiday experiences across India. Available 24×7 for all your travel needs.
             </p>
@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Quick Links</h4>
             <ul>
-              {quickLinks.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
+              {quickLinks.map(l => <li key={l.label}><Link to={l.path}>{l.label}</Link></li>)}
             </ul>
           </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Our Services</h4>
             <ul>
-              {serviceLinks.map(s => <li key={s}><a href="#booking">{s}</a></li>)}
+              {serviceLinks.map(s => <li key={s}><Link to="/booking">{s}</Link></li>)}
             </ul>
           </div>
 
@@ -96,9 +96,9 @@ export default function Footer() {
         <div className="container footer-bottom-inner">
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>© {year} RK taxi service. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <a href="#home">Privacy Policy</a>
-            <a href="#home">Terms of Service</a>
-            <a href="#home">Refund Policy</a>
+            <Link to="/">Privacy Policy</Link>
+            <Link to="/">Terms of Service</Link>
+            <Link to="/">Refund Policy</Link>
           </div>
         </div>
       </div>

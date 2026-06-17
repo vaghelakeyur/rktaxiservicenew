@@ -76,22 +76,45 @@ html {
 
 /* ── DARK MODE (default — deep purple theme) ── */
 [data-theme='dark'] {
-  --bg-body:        #0e0b1e;
-  --bg-section:     #0e0b1e;
-  --bg-section-alt: #1a0545;
-  --bg-card:        rgba(255,255,255,0.04);
-  --bg-input:       #1a1535;
-  --text-primary:   #f1f0ff;
-  --text-secondary: rgba(255,255,255,0.65);
-  --text-muted:     rgba(255,255,255,0.38);
-  --border-color:   rgba(124,58,237,0.28);
-  --shadow-color:   rgba(124,58,237,0.22);
-  --white:          #f1f0ff;
-  --dark:           #f1f0ff;
-  --gray:           rgba(255,255,255,0.60);
-  --gray-light:     rgba(124,58,237,0.15);
-  --primary-light:  rgba(124,58,237,0.18);
-  --accent-light:   rgba(6,182,212,0.15);
+  /* ── Primary Palette Overrides (Royal Blue) ── */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: rgba(37, 99, 235, 0.15);
+
+  /* ── Accent Overrides (Yellow) ── */
+  --accent: #f5c518;
+  --accent-dark: #d4a910;
+  --accent-light: rgba(245, 197, 24, 0.15);
+
+  /* ── Highlight / CTA Overrides (Yellow) ── */
+  --highlight: #f5c518;
+  --highlight-dark: #d4a910;
+  --highlight-light: rgba(245, 197, 24, 0.1);
+
+  /* ── Backgrounds (Merged Light Black, Green & Yellow) ── */
+  --bg-body:        #0a0c0b;
+  --bg-section:     #0a0c0b;
+  --bg-section-alt: #121614;
+  --bg-card:        rgba(255, 255, 255, 0.035);
+  --bg-input:       #181c1a;
+
+  /* ── Text (Pure White) ── */
+  --text-primary:   #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted:     rgba(255, 255, 255, 0.42);
+
+  /* ── Borders & Shadows (Green/Yellow Accent) ── */
+  --border-color:   rgba(16, 185, 129, 0.22);
+  --shadow-color:   rgba(16, 185, 129, 0.12);
+  --white:          #ffffff;
+  --dark:           #ffffff;
+  --gray:           rgba(255, 255, 255, 0.65);
+  --gray-light:     rgba(16, 185, 129, 0.1);
+
+  /* ── Gradients (Green to Yellow Merge) ── */
+  --grad-hero:      radial-gradient(circle at 15% 25%, rgba(16, 185, 129, 0.18), transparent 45%), radial-gradient(circle at 85% 75%, rgba(245, 197, 24, 0.12), transparent 45%), linear-gradient(135deg, #0a0c0b 0%, #121614 100%);
+  --grad-primary:   linear-gradient(135deg, #10b981, #f5c518);
+  --grad-card:      linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(245, 197, 24, 0.04));
 }
 
 /* ── LIGHT MODE ── */
@@ -464,9 +487,9 @@ img {
 [data-theme='dark'] .packages-section::after,
 [data-theme='dark'] .contact-section::after {
   background:
-    radial-gradient(ellipse at 10% 20%,  rgba(124,58,237,0.18) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%,  rgba(6,182,212,0.13)  0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%,  rgba(249,115,22,0.08) 0%, transparent 55%);
+    radial-gradient(ellipse at 10% 20%,  rgba(16,185,129,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%,  rgba(245,197,24,0.12)  0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%,  rgba(16,185,129,0.08) 0%, transparent 55%);
 }
 
 @keyframes blobDrift {
