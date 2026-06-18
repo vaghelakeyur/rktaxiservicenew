@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import useInView from "../hooks/useInView";
 import { onBookingPrefill, offBookingPrefill } from "../utils/bookingStore";
 import "./BookingForm.css";
@@ -38,6 +39,7 @@ const CAB_TYPES = [
 ];
 
 export default function BookingForm() {
+  const location = useLocation();
   const [titleRef, titleVisible] = useInView();
   const [formRef, formVisible] = useInView();
   const [sideRef, sideVisible] = useInView();
@@ -58,20 +60,30 @@ export default function BookingForm() {
 
   // Listen for prefill events fired from the Popular Routes section
   useEffect(() => {
+    // Prefill from router navigation state (if navigated from Popular Routes)
+    if (location.state?.pickup || location.state?.drop) {
+      setForm((prev) => ({
+        ...prev,
+        pickup: location.state.pickup || prev.pickup,
+        drop: location.state.drop || prev.drop,
+      }));
+      setErrors((prev) => ({ ...prev, pickup: "", drop: "" }));
+      setSubmitted(false);
+    }
+
+    // Prefill from custom event (fallback)
     const handler = ({ detail }) => {
       setForm((prev) => ({
         ...prev,
         pickup: detail.pickup || prev.pickup,
         drop: detail.drop || prev.drop,
       }));
-      // Clear any existing location errors
       setErrors((prev) => ({ ...prev, pickup: "", drop: "" }));
-      // If form was already submitted, reset to show the form again
       setSubmitted(false);
     };
     onBookingPrefill(handler);
     return () => offBookingPrefill(handler);
-  }, []);
+  }, [location.state]);
 
   const validate = () => {
     const e = {};

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import { MdLocationOn, MdDirectionsCar, MdAccessTime, MdPhone } from 'react-icons/md'
 import { prefillBooking } from '../utils/bookingStore'
@@ -12,7 +13,7 @@ const rajkotDestinations = [
     description:
       'Book a comfortable taxi from Rajkot to Gandhinagar, Gujarat\'s capital city. Our reliable cab service ensures a smooth and safe journey.',
     attractions: ['Akshardham Temple', 'Sarita Udyan', 'Indroda Nature Park'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg/640px-Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg',
+    image: '/DestinationImg/Akshardham_Gandhinagar_Gujarat.jpg',
     alt: 'Akshardham Temple, Gandhinagar',
   },
   {
@@ -22,7 +23,7 @@ const rajkotDestinations = [
     description:
       'Travel from Rajkot to Ahmedabad in comfort with our taxi service. Our reliable cabs connect you to Gujarat\'s largest city with ease.',
     attractions: ['Sabarmati Ashram', 'Kankaria Lake', 'Sidi Saiyyed Mosque'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sidi_saiyyed_mosque.jpg/640px-Sidi_saiyyed_mosque.jpg',
+    image: '/DestinationImg/ahmedabad2.jpg',
     alt: 'Sidi Saiyyed Mosque, Ahmedabad',
   },
   {
@@ -32,7 +33,7 @@ const rajkotDestinations = [
     description:
       'Need a long-distance taxi from Rajkot to Mumbai? Our comfortable cabs and experienced drivers make the overnight journey easy.',
     attractions: ['Gateway of India', 'Marine Drive', 'Juhu Beach'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mumbai_Harbour_Bridge_night.jpg/640px-Mumbai_Harbour_Bridge_night.jpg',
+    image: '/DestinationImg/mumbai.webp',
     alt: 'Mumbai skyline at night',
   },
   {
@@ -42,7 +43,7 @@ const rajkotDestinations = [
     description:
       'Book a quick and comfortable taxi ride from Rajkot to Morbi. Our professional cab service gets you there fast and affordably.',
     attractions: ['Hanging Bridge', 'Mani Mandir', 'Green Lake Garden'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mani_Mandir_Rajkot.jpg/640px-Mani_Mandir_Rajkot.jpg',
+    image: '/DestinationImg/photo4jpg.jpg',
     alt: 'Morbi heritage site',
   },
   {
@@ -52,7 +53,7 @@ const rajkotDestinations = [
     description:
       'Travel from Rajkot to Jamnagar with our reliable taxi service. Experience comfortable journey to the Brass City of India.',
     attractions: ['Lakhota Lake', 'Bala Hanuman Temple', 'Marine National Park'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lakhota_Lake%2C_Jamnagar.jpg/640px-Lakhota_Lake%2C_Jamnagar.jpg',
+    image: '/DestinationImg/temple-view.jpg',
     alt: 'Lakhota Lake, Jamnagar',
   },
   {
@@ -62,7 +63,7 @@ const rajkotDestinations = [
     description:
       'Book a taxi from Rajkot to Junagadh for a comfortable journey to the historic city at the foothills of Mount Girnar.',
     attractions: ['Girnar Hill', 'Uparkot Fort', 'Mahabat Maqbara'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Junagadh_Fort.jpg/640px-Junagadh_Fort.jpg',
+    image: '/DestinationImg/junagadh.jpg',
     alt: 'Uparkot Fort, Junagadh',
   },
   {
@@ -72,7 +73,7 @@ const rajkotDestinations = [
     description:
       'Experience a comfortable journey from Rajkot to Sasan Gir, home of the Asiatic Lions. Our taxi makes wildlife tourism easy.',
     attractions: ['Gir National Park', 'Devaliya Safari Park', 'Kamleshwar Dam'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Asiatic_Lion_in_Gir_National_Park.jpg/640px-Asiatic_Lion_in_Gir_National_Park.jpg',
+    image: '/DestinationImg/sasan-gir1.webp',
     alt: 'Gir National Park, Sasan',
   },
   {
@@ -82,7 +83,7 @@ const rajkotDestinations = [
     description:
       'Plan your beach getaway with our taxi service from Rajkot to Diu. Enjoy a comfortable and safe ride to this charming coastal town.',
     attractions: ['Diu Fort', 'Nagoa Beach', "St. Paul's Church"],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Nagoa_Beach_Diu.jpg/640px-Nagoa_Beach_Diu.jpg',
+    image: '/DestinationImg/diu.jpg',
     alt: 'Nagoa Beach, Diu',
   },
   {
@@ -92,7 +93,7 @@ const rajkotDestinations = [
     description:
       'Travel from Rajkot to Porbandar, birthplace of Mahatma Gandhi, in our comfortable taxis with professional drivers.',
     attractions: ['Kirti Mandir', 'Porbandar Beach', 'Huzoor Palace'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kirti_Mandir%2C_Porbandar.jpg/640px-Kirti_Mandir%2C_Porbandar.jpg',
+    image: '/DestinationImg/porbandar.png',
     alt: 'Kirti Mandir, Porbandar',
   },
   {
@@ -102,7 +103,7 @@ const rajkotDestinations = [
     description:
       'Book a long-distance taxi from Rajkot to Udaipur. Visit the City of Lakes with our reliable cab and experienced driver.',
     attractions: ['Lake Palace', 'City Palace', 'Jagdish Temple'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Jal_mahal.jpg/640px-Jal_mahal.jpg',
+    image: '/DestinationImg/udaipur.avif',
     alt: 'Lake Palace, Udaipur',
   },
   {
@@ -112,7 +113,7 @@ const rajkotDestinations = [
     description:
       'Need a taxi from Rajkot to Bhavnagar? Our comfortable cabs ensure a pleasant journey to this coastal city in Saurashtra.',
     attractions: ['Takhteshwar Temple', 'Victoria Park', 'Nilambagh Palace'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Nilambag_Palace_Hotel%2C_Bhavnagar.jpg/640px-Nilambag_Palace_Hotel%2C_Bhavnagar.jpg',
+    image: '/DestinationImg/bhavnagar.jpg',
     alt: 'Nilambagh Palace, Bhavnagar',
   },
   {
@@ -122,7 +123,7 @@ const rajkotDestinations = [
     description:
       'Experience comfortable travel from Rajkot to Bhuj with our taxi service. Visit the heart of Kutch with ease and style.',
     attractions: ['Aina Mahal', 'Prag Mahal', 'Bhujodi Village'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Prag_Mahal_Bhuj.jpg/640px-Prag_Mahal_Bhuj.jpg',
+    image: '/DestinationImg/Bhuj.jpg',
     alt: 'Prag Mahal, Bhuj',
   },
   {
@@ -132,7 +133,7 @@ const rajkotDestinations = [
     description:
       'Book a taxi from Rajkot to Gandhidham for business or leisure. Our professional cab service covers the Kandla Port route comfortably.',
     attractions: ['Kandla Port', 'Gandhi Smruthi', 'Rambaugg Garden'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg/640px-Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg',
+    image: '/DestinationImg/gandhidam.jpg',
     alt: 'Gandhidham, Gujarat',
   },
   {
@@ -142,7 +143,7 @@ const rajkotDestinations = [
     description:
       'Plan your hill station trip with our taxi service from Rajkot to Mount Abu. Experience Rajasthan\'s only hill station in comfort.',
     attractions: ['Dilwara Temples', 'Nakki Lake', 'Sunset Point'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Nakki_Lake_Mount_Abu.jpg/640px-Nakki_Lake_Mount_Abu.jpg',
+    image: '/DestinationImg/abu.jpg',
     alt: 'Nakki Lake, Mount Abu',
   },
 ]
@@ -155,7 +156,7 @@ const ahmedabadDestinations = [
     description:
       'Book a comfortable taxi from Ahmedabad to Rajkot. Our professional cab service makes the journey smooth and stress-free.',
     attractions: ['Jubilee Garden', 'Watson Museum', 'Rotary Dolls Museum'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sidi_saiyyed_mosque.jpg/640px-Sidi_saiyyed_mosque.jpg',
+    image: '/DestinationImg/rajkot.webp',
     alt: 'Rajkot city',
   },
   {
@@ -165,7 +166,7 @@ const ahmedabadDestinations = [
     description:
       'Travel from Ahmedabad to Surat comfortably. Our reliable taxi service connects you to Gujarat\'s diamond city with ease.',
     attractions: ['Surat Castle', 'Dumas Beach', 'Dutch Garden'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Nagoa_Beach_Diu.jpg/640px-Nagoa_Beach_Diu.jpg',
+    image: '/DestinationImg/surat.jpg',
     alt: 'Dumas Beach, Surat',
   },
   {
@@ -175,7 +176,7 @@ const ahmedabadDestinations = [
     description:
       'Book a quick taxi ride from Ahmedabad to Vadodara. Our cabs connect you to the cultural capital of Gujarat in no time.',
     attractions: ['Laxmi Vilas Palace', 'Sayaji Baug', 'Baroda Museum'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Nilambag_Palace_Hotel%2C_Bhavnagar.jpg/640px-Nilambag_Palace_Hotel%2C_Bhavnagar.jpg',
+    image: '/DestinationImg/vadodara.jpg',
     alt: 'Laxmi Vilas Palace, Vadodara',
   },
   {
@@ -185,7 +186,7 @@ const ahmedabadDestinations = [
     description:
       'Take a quick taxi from Ahmedabad to Gandhinagar, Gujarat\'s capital. Our cabs ensure a fast and comfortable ride.',
     attractions: ['Akshardham Temple', 'Indroda Nature Park', 'Sarita Udyan'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg/640px-Swaminarayan_Akshardham_%28Delhi%29_in_February_2008.jpg',
+    image: '/DestinationImg/Akshardham_Gandhinagar_Gujarat.jpg',
     alt: 'Akshardham Temple, Gandhinagar',
   },
   {
@@ -195,7 +196,7 @@ const ahmedabadDestinations = [
     description:
       'Book a long-distance taxi from Ahmedabad to Mumbai. Our comfortable cabs and experienced drivers make the journey pleasant.',
     attractions: ['Gateway of India', 'Marine Drive', 'Juhu Beach'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mumbai_Harbour_Bridge_night.jpg/640px-Mumbai_Harbour_Bridge_night.jpg',
+    image: '/DestinationImg/mumbai.webp',
     alt: 'Mumbai skyline',
   },
   {
@@ -205,7 +206,7 @@ const ahmedabadDestinations = [
     description:
       'Plan a trip to Udaipur from Ahmedabad with our taxi service. Enjoy the beautiful City of Lakes with a comfortable ride.',
     attractions: ['Lake Palace', 'City Palace', 'Jagdish Temple'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Jal_mahal.jpg/640px-Jal_mahal.jpg',
+    image: '/DestinationImg/udaipur.avif',
     alt: 'Lake Palace, Udaipur',
   },
   {
@@ -215,7 +216,7 @@ const ahmedabadDestinations = [
     description:
       'Book a taxi from Ahmedabad to Dwarka for a comfortable pilgrimage journey to one of the sacred Char Dham sites.',
     attractions: ['Dwarkadhish Temple', 'Bet Dwarka', 'Nageshwar Jyotirlinga'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lakhota_Lake%2C_Jamnagar.jpg/640px-Lakhota_Lake%2C_Jamnagar.jpg',
+    image: '/DestinationImg/dwarka.jpg',
     alt: 'Dwarka temple',
   },
   {
@@ -225,7 +226,7 @@ const ahmedabadDestinations = [
     description:
       'Travel from Ahmedabad to Bhuj with our cab service. Explore the vibrant culture of Kutch with ease and comfort.',
     attractions: ['Aina Mahal', 'Prag Mahal', 'Rann of Kutch'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Prag_Mahal_Bhuj.jpg/640px-Prag_Mahal_Bhuj.jpg',
+    image: '/DestinationImg/Bhuj.jpg',
     alt: 'Prag Mahal, Bhuj',
   },
   {
@@ -235,7 +236,7 @@ const ahmedabadDestinations = [
     description:
       'Escape to Rajasthan\'s only hill station with our taxi from Ahmedabad to Mount Abu. A refreshing getaway awaits.',
     attractions: ['Dilwara Temples', 'Nakki Lake', 'Sunset Point'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Nakki_Lake_Mount_Abu.jpg/640px-Nakki_Lake_Mount_Abu.jpg',
+    image: '/DestinationImg/abu.jpg',
     alt: 'Nakki Lake, Mount Abu',
   },
   {
@@ -245,7 +246,7 @@ const ahmedabadDestinations = [
     description:
       'Book a long-distance taxi from Ahmedabad to Jaipur. Discover the Pink City with our comfortable cab and reliable drivers.',
     attractions: ['Amber Fort', 'Hawa Mahal', 'Jantar Mantar'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Junagadh_Fort.jpg/640px-Junagadh_Fort.jpg',
+    image: '/DestinationImg/jaipur.webp',
     alt: 'Amber Fort, Jaipur',
   },
   {
@@ -255,7 +256,7 @@ const ahmedabadDestinations = [
     description:
       'Visit the birthplace of Mahatma Gandhi with our taxi from Ahmedabad to Porbandar. Safe, comfortable, and on-time.',
     attractions: ['Kirti Mandir', 'Porbandar Beach', 'Huzoor Palace'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kirti_Mandir%2C_Porbandar.jpg/640px-Kirti_Mandir%2C_Porbandar.jpg',
+    image: '/DestinationImg/porbandar.png',
     alt: 'Kirti Mandir, Porbandar',
   },
   {
@@ -265,12 +266,14 @@ const ahmedabadDestinations = [
     description:
       'Book a taxi from Ahmedabad to Junagadh for a comfortable trip to this historic city at the foothills of Mount Girnar.',
     attractions: ['Girnar Hill', 'Uparkot Fort', 'Mahabat Maqbara'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Junagadh_Fort.jpg/640px-Junagadh_Fort.jpg',
+    image: '/DestinationImg/junagadh.jpg',
     alt: 'Uparkot Fort, Junagadh',
   },
 ]
 
 function DestCard({ dest, index, visible }) {
+  const navigate = useNavigate()
+
   const handleError = (e) => {
     e.target.style.display = 'none'
     e.target.nextElementSibling.style.display = 'flex'
@@ -281,12 +284,9 @@ function DestCard({ dest, index, visible }) {
     e.preventDefault()
     const parts = dest.name.split(' to ')
     const pickup = parts[0]?.trim() || ''
-    const drop   = parts[1]?.trim() || ''
+    const drop = parts[1]?.trim() || ''
     prefillBooking({ pickup, drop })
-    // Small delay so BookingForm state updates before scroll
-    setTimeout(() => {
-      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
-    }, 50)
+    navigate('/booking', { state: { pickup, drop } })
   }
 
   return (
@@ -349,8 +349,8 @@ function DestCard({ dest, index, visible }) {
 export default function Destinations() {
   const [activeTab, setActiveTab] = useState('rajkot')
   const [titleRef, titleVisible] = useInView()
-  const [gridRef, gridVisible]   = useInView()
-  const [ctaRef, ctaVisible]     = useInView()
+  const [gridRef, gridVisible] = useInView()
+  const [ctaRef, ctaVisible] = useInView()
 
   const destinations = activeTab === 'rajkot' ? rajkotDestinations : ahmedabadDestinations
 

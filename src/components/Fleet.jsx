@@ -62,7 +62,7 @@ const fleet = [
     tagColor: "#f59e0b",
     bgColor: "#fffbeb",
     image:
-      "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800&q=80",
+      "/Car_Image/alto.jpg",
   },
   {
     name: "Swift",
@@ -74,7 +74,7 @@ const fleet = [
     tagColor: "#0ea5e9",
     bgColor: "#f0f9ff",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+      "/Car_Image/swift2.jpg",
   },
   {
     name: "Baleno",
@@ -86,7 +86,7 @@ const fleet = [
     tagColor: "#6366f1",
     bgColor: "#f5f3ff",
     image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+      "/Car_Image/baleno.jpg",
   },
   {
     name: "Brezza",
@@ -110,7 +110,7 @@ const fleet = [
     tagColor: "#ec4899",
     bgColor: "#fdf2f8",
     image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+      "/Car_Image/ertiga1.jpg",
   },
   {
     name: "XL6",
@@ -122,7 +122,7 @@ const fleet = [
     tagColor: "#8b5cf6",
     bgColor: "#faf5ff",
     image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+      "/Car_Image/xl6.jpg",
   },
   // ── Hyundai ──
   {
@@ -135,7 +135,7 @@ const fleet = [
     tagColor: "#f97316",
     bgColor: "#fff7ed",
     image:
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80",
+      "/Car_Image/grand-i10.avif",
   },
   {
     name: "i20",
@@ -147,7 +147,7 @@ const fleet = [
     tagColor: "#0ea5e9",
     bgColor: "#f0f9ff",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+      "/Car_Image/i20.avif",
   },
   {
     name: "Venue",
@@ -159,7 +159,7 @@ const fleet = [
     tagColor: "#10b981",
     bgColor: "#f0fdf4",
     image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
+      "/Car_Image/venue.avif",
   },
   {
     name: "Creta",
@@ -171,7 +171,7 @@ const fleet = [
     tagColor: "#f59e0b",
     bgColor: "#fffbeb",
     image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+      "/Car_Image/creta.avif",
   },
   {
     name: "Alcazar",
@@ -183,7 +183,7 @@ const fleet = [
     tagColor: "#6366f1",
     bgColor: "#f5f3ff",
     image:
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80",
+      "/Car_Image/alcazar.avif",
   },
   // ── Tata Motors ──
   {
@@ -196,7 +196,7 @@ const fleet = [
     tagColor: "#f97316",
     bgColor: "#fff7ed",
     image:
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80",
+      "/Car_Image/tiago.avif",
   },
   {
     name: "Punch",
@@ -208,7 +208,7 @@ const fleet = [
     tagColor: "#0ea5e9",
     bgColor: "#f0f9ff",
     image:
-      "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800&q=80",
+      "/Car_Image/punch.avif",
   },
   {
     name: "Nexon",
@@ -220,7 +220,7 @@ const fleet = [
     tagColor: "#10b981",
     bgColor: "#f0fdf4",
     image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
+      "/Car_Image/Tata_Nexon.avif",
   },
   {
     name: "Harrier",
@@ -232,7 +232,7 @@ const fleet = [
     tagColor: "#6366f1",
     bgColor: "#f5f3ff",
     image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+      "/Car_Image/harrier.jpg",
   },
   {
     name: "Safari",
@@ -244,7 +244,7 @@ const fleet = [
     tagColor: "#ec4899",
     bgColor: "#fdf2f8",
     image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+      "/Car_Image/safari.avif",
   },
   // ── Mahindra ──
   {
@@ -257,7 +257,7 @@ const fleet = [
     tagColor: "#92400e",
     bgColor: "#fef3c7",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+      "/Car_Image/thar.jpg",
   },
   {
     name: "Scorpio N",
@@ -269,7 +269,7 @@ const fleet = [
     tagColor: "#f59e0b",
     bgColor: "#fffbeb",
     image:
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80",
+      "/Car_Image/Scorpio_N.jpg",
   },
   {
     name: "XUV700",
@@ -281,7 +281,7 @@ const fleet = [
     tagColor: "#6366f1",
     bgColor: "#f5f3ff",
     image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+      "/Car_Image/xuv700.avif",
   },
   {
     name: "Bolero",
@@ -293,7 +293,7 @@ const fleet = [
     tagColor: "#10b981",
     bgColor: "#f0fdf4",
     image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
+      "/Car_Image/bolero.avif",
   },
   // ── Kia ──
   {
@@ -306,7 +306,7 @@ const fleet = [
     tagColor: "#0ea5e9",
     bgColor: "#f0f9ff",
     image:
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80",
+      "/Car_Image/sonet.webp",
   },
   {
     name: "Seltos",
@@ -318,7 +318,7 @@ const fleet = [
     tagColor: "#ec4899",
     bgColor: "#fdf2f8",
     image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+      "/Car_Image/seltos.avif",
   },
   {
     name: "Carens",
@@ -330,7 +330,7 @@ const fleet = [
     tagColor: "#f97316",
     bgColor: "#fff7ed",
     image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+      "/Car_Image/Carens.avif",
   },
   // ── Toyota ──
   {
@@ -343,7 +343,7 @@ const fleet = [
     tagColor: "#f59e0b",
     bgColor: "#fffbeb",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+      "/Car_Image/Glanza.avif",
   },
   {
     name: "Urban Cruiser Hyryder",
@@ -355,7 +355,7 @@ const fleet = [
     tagColor: "#10b981",
     bgColor: "#f0fdf4",
     image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+      "/Car_Image/Urban_Cruiser_Hyryder.avif",
   },
   {
     name: "Innova Crysta",
@@ -367,7 +367,7 @@ const fleet = [
     tagColor: "#6366f1",
     bgColor: "#f5f3ff",
     image:
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80",
+      "/Car_Image/Innova_Crysta.avif",
   },
   {
     name: "Innova Hycross",
@@ -379,7 +379,7 @@ const fleet = [
     tagColor: "#ec4899",
     bgColor: "#fdf2f8",
     image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
+      "/Car_Image/Innova_Hycross.avif",
   },
   {
     name: "Fortuner",
@@ -391,7 +391,7 @@ const fleet = [
     tagColor: "#1e293b",
     bgColor: "#f1f5f9",
     image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+      "/Car_Image/Fortuner.avif",
   },
 ];
 

@@ -14,13 +14,13 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => i + 1)
 
 export default function Hero() {
   const [displayed, setDisplayed] = useState([])   // lines fully shown
-  const [current, setCurrent]     = useState(0)    // index of line being typed
-  const [charIdx, setCharIdx]     = useState(0)    // char position in current line
+  const [current, setCurrent] = useState(0)    // index of line being typed
+  const [charIdx, setCharIdx] = useState(0)    // char position in current line
 
   useEffect(() => {
     if (current >= LINES.length) return
 
-    const line     = LINES[current]
+    const line = LINES[current]
     const fullText = line.highlight ? line.text + line.highlightWord : line.text
 
     if (charIdx < fullText.length) {
@@ -38,12 +38,12 @@ export default function Hero() {
   }, [current, charIdx])
 
   // Build what to show for the currently-typing line
-  const activeLine   = current < LINES.length ? LINES[current] : null
+  const activeLine = current < LINES.length ? LINES[current] : null
   const activeTyping = activeLine
     ? (activeLine.highlight
-        ? activeLine.text + activeLine.highlightWord
-        : activeLine.text
-      ).slice(0, charIdx)
+      ? activeLine.text + activeLine.highlightWord
+      : activeLine.text
+    ).slice(0, charIdx)
     : ''
 
   return (
@@ -62,49 +62,49 @@ export default function Hero() {
       <svg className="hero-routes" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <linearGradient id="routeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f5c518" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#f5c518" stopOpacity="0.72"/>
-            <stop offset="100%" stopColor="#10b981" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#f5c518" stopOpacity="0" />
+            <stop offset="50%" stopColor="#f5c518" stopOpacity="0.72" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="routeGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#10b981" stopOpacity="0.55"/>
-            <stop offset="100%" stopColor="#f5c518" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0" />
+            <stop offset="50%" stopColor="#10b981" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#f5c518" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="routeGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0"/>
-            <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.42"/>
-            <stop offset="100%" stopColor="#f5c518" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0" />
+            <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.42" />
+            <stop offset="100%" stopColor="#f5c518" stopOpacity="0" />
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
         {/* Curved route paths */}
-        <path d="M-50,600 Q200,400 500,300 T1100,150 T1500,50" stroke="url(#routeGrad1)" strokeWidth="1.5" fill="none" filter="url(#glow)" className="route-path route-path-1"/>
-        <path d="M-50,500 Q300,350 700,250 T1300,100 T1500,80" stroke="url(#routeGrad2)" strokeWidth="1" fill="none" filter="url(#glow)" className="route-path route-path-2"/>
-        <path d="M0,700 Q400,500 800,400 T1440,200"            stroke="url(#routeGrad3)" strokeWidth="1.2" fill="none" filter="url(#glow)" className="route-path route-path-3"/>
+        <path d="M-50,600 Q200,400 500,300 T1100,150 T1500,50" stroke="url(#routeGrad1)" strokeWidth="1.5" fill="none" filter="url(#glow)" className="route-path route-path-1" />
+        <path d="M-50,500 Q300,350 700,250 T1300,100 T1500,80" stroke="url(#routeGrad2)" strokeWidth="1" fill="none" filter="url(#glow)" className="route-path route-path-2" />
+        <path d="M0,700 Q400,500 800,400 T1440,200" stroke="url(#routeGrad3)" strokeWidth="1.2" fill="none" filter="url(#glow)" className="route-path route-path-3" />
         {/* Moving dot on route 1 */}
         <circle r="4" fill="#f5c518" filter="url(#glow)" opacity="0.9">
-          <animateMotion dur="8s" repeatCount="indefinite" path="M-50,600 Q200,400 500,300 T1100,150 T1500,50"/>
+          <animateMotion dur="8s" repeatCount="indefinite" path="M-50,600 Q200,400 500,300 T1100,150 T1500,50" />
         </circle>
         {/* Moving dot on route 2 */}
         <circle r="3" fill="#10b981" filter="url(#glow)" opacity="0.8">
-          <animateMotion dur="11s" repeatCount="indefinite" begin="-3s" path="M-50,500 Q300,350 700,250 T1300,100 T1500,80"/>
+          <animateMotion dur="11s" repeatCount="indefinite" begin="-3s" path="M-50,500 Q300,350 700,250 T1300,100 T1500,80" />
         </circle>
         {/* Moving dot on route 3 */}
         <circle r="3.5" fill="#f59e0b" filter="url(#glow)" opacity="0.75">
-          <animateMotion dur="14s" repeatCount="indefinite" begin="-6s" path="M0,700 Q400,500 800,400 T1440,200"/>
+          <animateMotion dur="14s" repeatCount="indefinite" begin="-6s" path="M0,700 Q400,500 800,400 T1440,200" />
         </circle>
       </svg>
 
       {/* Pulsing location pins */}
       <div className="hero-pins" aria-hidden="true">
-        <div className="pin pin-1"><span className="pin-dot"/><span className="pin-ring"/></div>
-        <div className="pin pin-2"><span className="pin-dot"/><span className="pin-ring"/></div>
-        <div className="pin pin-3"><span className="pin-dot"/><span className="pin-ring"/></div>
-        <div className="pin pin-4"><span className="pin-dot"/><span className="pin-ring"/></div>
+        <div className="pin pin-1"><span className="pin-dot" /><span className="pin-ring" /></div>
+        <div className="pin pin-2"><span className="pin-dot" /><span className="pin-ring" /></div>
+        <div className="pin pin-3"><span className="pin-dot" /><span className="pin-ring" /></div>
+        <div className="pin pin-4"><span className="pin-dot" /><span className="pin-ring" /></div>
       </div>
 
       <div className="container hero-content">
@@ -145,6 +145,18 @@ export default function Hero() {
             Premium taxi services across India — local rides, outstation trips,
             and airport transfers at unbeatable rates. Available 24/7.
           </p>
+
+          {/* Mobile Taxi Image (shows above buttons only on mobile) */}
+          <div className="hero-img-wrap hero-animate-card hero-mobile-only">
+            <div className="hero-img-glow" aria-hidden="true" />
+            <img
+              src="/img/delivery_taxi_13-removebg-preview.png"
+              alt="RK Taxi Service — Premium Cab"
+              className="hero-taxi-img"
+              loading="eager"
+            />
+          </div>
+
           <div className="hero-actions">
             <Link to="/booking" className="btn-primary hero-btn">
               <MdMyLocation style={{ fontSize: 18 }} /> Book a Ride
@@ -173,8 +185,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Right side taxi image ── */}
-        <div className="hero-img-wrap hero-animate-card">
+        {/* ── Right side taxi image (Desktop version) ── */}
+        <div className="hero-img-wrap hero-animate-card hero-desktop-only">
           <div className="hero-img-glow" aria-hidden="true" />
           <img
             src="/img/delivery_taxi_13-removebg-preview.png"

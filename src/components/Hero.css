@@ -279,9 +279,16 @@
   animation: badgePulse 3s ease-in-out infinite;
 }
 
+
 @keyframes badgePulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(245, 197, 24, 0); }
   50% { box-shadow: 0 0 0 6px rgba(245, 197, 24, 0.1); }
+}
+
+[data-theme='light'] .hero-badge {
+  background: rgba(180, 83, 9, 0.08);
+  border: 1px solid rgba(180, 83, 9, 0.28);
+  color: #b45309;
 }
 
 .hero-text h1 {
@@ -581,6 +588,7 @@
   to   { opacity: 1; transform: translateX(0); }
 }
 
+
 .hero-animate-text {
   animation: heroSlideUp 0.85s cubic-bezier(0.22,1,0.36,1) both;
   animation-delay: 0.2s;
@@ -589,6 +597,13 @@
 .hero-animate-card {
   animation: heroSlideRight 0.85s cubic-bezier(0.22,1,0.36,1) both;
   animation-delay: 0.5s;
+}
+/* Helper classes for responsive layouts */
+.hero-mobile-only {
+  display: none !important;
+}
+.hero-desktop-only {
+  display: flex !important;
 }
 
 /* ── Responsive ── */
@@ -612,6 +627,15 @@
   }
   .hero-img-badge--tl { top: 12%; left: 4px; }
   .hero-img-badge--br { bottom: 12%; right: 4px; }
+  
+  /* Show mobile-only image, hide desktop image */
+  .hero-mobile-only.hero-img-wrap {
+    display: flex !important;
+    margin: 0 auto 32px !important;
+  }
+  .hero-desktop-only {
+    display: none !important;
+  }
 }
 
 @media (max-width: 600px) {
